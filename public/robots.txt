@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noticias.angola-botschaft.de/sitemap.xml
+
+Disallow: /api/

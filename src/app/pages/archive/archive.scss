@@ -1,0 +1,190 @@
+.archive {
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  &__heading {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Filters */
+  &__filters {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  &__filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+
+    &--tags {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__filter-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-right: 0.5rem;
+  }
+
+  &__filter-btn {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: var(--filter-color, var(--ember));
+      color: var(--filter-color, var(--ember));
+    }
+
+    &--active {
+      background: var(--filter-color, var(--ember));
+      border-color: var(--filter-color, var(--ember));
+      color: white;
+    }
+  }
+
+  &__tag-btn {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover { border-color: var(--accent); color: var(--accent); }
+    &--active { background: var(--accent); border-color: var(--accent); color: white; }
+  }
+
+  &__count {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Grid — list layout for archive */
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    transition: transform 0.2s;
+
+    &:hover { transform: translateX(4px); }
+    &:last-child { border-bottom: none; }
+  }
+
+  &__item-image {
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+  }
+
+  &__item-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--bg-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .material-icons-outlined { font-size: 2rem; color: var(--text-muted); opacity: 0.2; }
+  }
+
+  &__item-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__item-category {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__item-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0.3rem 0;
+  }
+
+  &__item-excerpt {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__item-meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  &__item-author { font-weight: 500; }
+  &__item-views { opacity: 0.7; }
+
+  &__empty {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+  }
+
+  &__loading {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+}
+
+@media (max-width: 768px) {
+  .archive__item {
+    grid-template-columns: 1fr;
+  }
+  .archive__item-image {
+    max-height: 200px;
+  }
+}

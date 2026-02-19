@@ -1,0 +1,49 @@
+<div class="category-page">
+  <div class="category-page__container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+      <a routerLink="/">{{ 'nav.home' | translate }}</a>
+      <span class="breadcrumbs__sep">/</span>
+      @if (category(); as cat) {
+        <span class="breadcrumbs__current">{{ cat | localized:'nome' }}</span>
+      }
+    </nav>
+
+    @if (category(); as cat) {
+      <header class="category-page__header" [style.border-left-color]="cat.cor || 'var(--ember)'">
+        <h1 class="category-page__title">{{ cat | localized:'nome' }}</h1>
+        @if (cat | localized:'descricao'; as desc) {
+          <p class="category-page__desc">{{ desc }}</p>
+        }
+      </header>
+    }
+
+    <div class="article-grid">
+      @for (article of articles(); track article.id) {
+        <a [routerLink]="['/artigo', article.slug]" class="article-card">
+          <div class="article-card__image">
+            <div class="article-card__placeholder">
+              <span class="material-icons-outlined">article</span>
+            </div>
+          </div>
+          <div class="article-card__body">
+            <h3 class="article-card__title">{{ article | localized:'titulo' }}</h3>
+            <p class="article-card__excerpt">{{ article | localized:'excerto' }}</p>
+            <div class="article-card__meta">
+              @if (article.author) {
+                <span>{{ article.author.nome }}</span>
+              }
+              <span>{{ article.publishedAt | date:'mediumDate' }}</span>
+            </div>
+          </div>
+        </a>
+      }
+    </div>
+
+    @if (hasMore() && !loading()) {
+      <div class="load-more">
+        <button class="btn btn--outline" (click)="loadMore()">{{ 'common.load_more' | translate }}</button>
+      </div>
+    }
+  </div>
+</div>

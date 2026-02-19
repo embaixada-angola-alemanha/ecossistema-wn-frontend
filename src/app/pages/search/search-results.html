@@ -1,0 +1,55 @@
+<div class="search-page">
+  <div class="search-page__container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+      <a routerLink="/">{{ 'nav.home' | translate }}</a>
+      <span class="breadcrumbs__sep">/</span>
+      <span class="breadcrumbs__current">{{ 'search.heading' | translate }}</span>
+    </nav>
+
+    <h1 class="search-page__heading">{{ 'search.heading' | translate }}</h1>
+
+    @if (query()) {
+      <p class="search-page__info">
+        {{ 'search.results_for' | translate }}: <strong>"{{ query() }}"</strong>
+        <span class="search-page__count">({{ totalElements() }})</span>
+      </p>
+    }
+
+    @if (articles().length > 0) {
+      <div class="search-page__results">
+        @for (article of articles(); track article.id) {
+          <a [routerLink]="['/artigo', article.slug]" class="search-result">
+            <div class="search-result__body">
+              @if (article.category) {
+                <span class="search-result__category" [style.color]="article.category.cor || 'var(--ember)'">
+                  {{ article.category | localized:'nome' }}
+                </span>
+              }
+              <h3 class="search-result__title">{{ article | localized:'titulo' }}</h3>
+              <p class="search-result__excerpt">{{ article | localized:'excerto' }}</p>
+              <div class="search-result__meta">
+                @if (article.author) {
+                  <span>{{ article.author.nome }}</span>
+                }
+                <time>{{ article.publishedAt | date:'mediumDate' }}</time>
+              </div>
+            </div>
+          </a>
+        }
+      </div>
+
+      @if (hasMore() && !loading()) {
+        <div class="load-more">
+          <button class="btn btn--outline" (click)="loadMore()">{{ 'common.load_more' | translate }}</button>
+        </div>
+      }
+    } @else if (!loading() && query()) {
+      <p class="search-page__empty">{{ 'search.no_results' | translate }}</p>
+    }
+
+    @if (loading()) {
+      <p class="search-page__loading">{{ 'common.loading' | translate }}</p>
+    }
+  </div>
+</div>

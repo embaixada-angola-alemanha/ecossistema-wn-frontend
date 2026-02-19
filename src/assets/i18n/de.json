@@ -1,0 +1,73 @@
+{
+  "header": {
+    "edition": "Digitale Ausgabe",
+    "tagline": "Botschaft der Republik Angola in Deutschland"
+  },
+  "nav": {
+    "home": "Startseite",
+    "archive": "Archiv",
+    "search": "Suchen"
+  },
+  "home": {
+    "title": "Startseite",
+    "latest": "Aktuelle Nachrichten",
+    "view_all": "Alle Nachrichten anzeigen"
+  },
+  "article": {
+    "title": "Artikel",
+    "views": "Aufrufe",
+    "tags": "Tags",
+    "share": "Teilen",
+    "related": "Verwandte Artikel"
+  },
+  "category": {
+    "title": "Kategorie"
+  },
+  "tag": {
+    "title": "Tag",
+    "label": "Tag"
+  },
+  "author": {
+    "title": "Autor",
+    "articles_by": "Artikel des Autors"
+  },
+  "archive": {
+    "title": "Nachrichtenarchiv",
+    "heading": "Archiv",
+    "filter_category": "Nach Kategorie filtern",
+    "filter_all": "Alle",
+    "no_results": "Keine Artikel gefunden."
+  },
+  "search": {
+    "title": "Suche",
+    "heading": "Suchergebnisse",
+    "placeholder": "Artikel suchen...",
+    "results_for": "Ergebnisse für",
+    "no_results": "Keine Ergebnisse gefunden."
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "heading": "Erhalten Sie unsere Nachrichten",
+    "text": "Abonnieren Sie unseren Newsletter und erhalten Sie die neuesten Nachrichten per E-Mail.",
+    "email_placeholder": "Ihre E-Mail",
+    "subscribe": "Abonnieren",
+    "success": "Erfolgreich abonniert! Überprüfen Sie Ihre E-Mail.",
+    "error": "Fehler beim Abonnieren. Bitte versuchen Sie es erneut."
+  },
+  "common": {
+    "load_more": "Mehr laden",
+    "loading": "Wird geladen..."
+  },
+  "not_found": {
+    "title": "Seite nicht gefunden",
+    "text": "Die gesuchte Seite existiert nicht oder wurde entfernt.",
+    "back": "Zurück zur Startseite"
+  },
+  "footer": {
+    "about_title": "Über Welwitschia Notícias",
+    "about_text": "Nachrichtenportal der Botschaft der Republik Angola in Deutschland. Informationen über Angola, bilaterale Beziehungen, Kultur und die angolanische Gemeinschaft in der Diaspora.",
+    "categories": "Rubriken",
+    "embassy": "Botschaft",
+    "copyright": "Botschaft der Republik Angola in Deutschland. Alle Rechte vorbehalten."
+  }
+}

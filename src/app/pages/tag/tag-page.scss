@@ -1,0 +1,21 @@
+.tag-page {
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  &__title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  &__hash {
+    color: var(--ember);
+    margin-right: 0.25rem;
+  }
+}
+
+@import '../../pages/home/home';

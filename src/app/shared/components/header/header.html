@@ -1,0 +1,71 @@
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar__container">
+    <span class="topbar__edition">{{ 'header.edition' | translate }} &mdash; {{ today() }}</span>
+    <div class="topbar__actions">
+      <a href="/api/v1/feed/rss" target="_blank" class="topbar__link" title="RSS">
+        <span class="material-icons-outlined">rss_feed</span>
+      </a>
+      @for (lang of languages; track lang.code) {
+        <button
+          class="topbar__lang"
+          [class.topbar__lang--active]="langService.currentLang() === lang.code"
+          (click)="langService.setLang(lang.code)">
+          {{ lang.code | uppercase }}
+        </button>
+      }
+    </div>
+  </div>
+</div>
+
+<!-- Masthead -->
+<header class="masthead">
+  <div class="masthead__container">
+    <a routerLink="/" class="masthead__brand">
+      <span class="masthead__name">Welwitschia Notícias</span>
+      <span class="masthead__tagline">{{ 'header.tagline' | translate }}</span>
+    </a>
+
+    <button class="masthead__hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">
+      <span class="material-icons-outlined">{{ menuOpen() ? 'close' : 'menu' }}</span>
+    </button>
+  </div>
+</header>
+
+<!-- Category navigation bar -->
+<nav class="catnav" [class.catnav--open]="menuOpen()">
+  <div class="catnav__container">
+    <a routerLink="/" routerLinkActive="catnav__link--active" [routerLinkActiveOptions]="{exact: true}"
+       class="catnav__link">{{ 'nav.home' | translate }}</a>
+    @for (cat of categories(); track cat.id) {
+      <a [routerLink]="['/categoria', cat.slug]" routerLinkActive="catnav__link--active"
+         class="catnav__link">
+        {{ langService.getLocalizedField(cat, 'nome') }}
+      </a>
+    }
+    <a routerLink="/arquivo" routerLinkActive="catnav__link--active"
+       class="catnav__link">{{ 'nav.archive' | translate }}</a>
+
+    <button class="catnav__search-btn" (click)="toggleSearch()">
+      <span class="material-icons-outlined">search</span>
+    </button>
+  </div>
+
+  @if (searchOpen()) {
+    <div class="catnav__search-bar">
+      <form class="catnav__search-form" (submit)="$event.preventDefault()">
+        <input
+          type="search"
+          class="catnav__search-input"
+          [placeholder]="'search.placeholder' | translate"
+          [(ngModel)]="searchQuery"
+          (keyup.enter)="searchOpen.set(false)"
+          autofocus>
+        <a [routerLink]="['/pesquisa']" [queryParams]="{q: searchQuery()}"
+           class="catnav__search-submit" (click)="searchOpen.set(false)">
+          <span class="material-icons-outlined">search</span>
+        </a>
+      </form>
+    </div>
+  }
+</nav>

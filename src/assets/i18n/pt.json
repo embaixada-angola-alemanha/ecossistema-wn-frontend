@@ -1,0 +1,73 @@
+{
+  "header": {
+    "edition": "Edição Digital",
+    "tagline": "Embaixada da República de Angola na Alemanha"
+  },
+  "nav": {
+    "home": "Início",
+    "archive": "Arquivo",
+    "search": "Pesquisar"
+  },
+  "home": {
+    "title": "Início",
+    "latest": "Últimas Notícias",
+    "view_all": "Ver Todas as Notícias"
+  },
+  "article": {
+    "title": "Artigo",
+    "views": "visualizações",
+    "tags": "Tags",
+    "share": "Partilhar",
+    "related": "Artigos Relacionados"
+  },
+  "category": {
+    "title": "Categoria"
+  },
+  "tag": {
+    "title": "Tag",
+    "label": "Tag"
+  },
+  "author": {
+    "title": "Autor",
+    "articles_by": "Artigos do Autor"
+  },
+  "archive": {
+    "title": "Arquivo de Notícias",
+    "heading": "Arquivo",
+    "filter_category": "Filtrar por categoria",
+    "filter_all": "Todas",
+    "no_results": "Nenhum artigo encontrado."
+  },
+  "search": {
+    "title": "Pesquisa",
+    "heading": "Resultados da Pesquisa",
+    "placeholder": "Pesquisar artigos...",
+    "results_for": "Resultados para",
+    "no_results": "Nenhum resultado encontrado."
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "heading": "Receba as Nossas Notícias",
+    "text": "Subscreva a nossa newsletter e receba as últimas notícias no seu email.",
+    "email_placeholder": "O seu email",
+    "subscribe": "Subscrever",
+    "success": "Subscrição realizada com sucesso! Verifique o seu email.",
+    "error": "Erro ao subscrever. Tente novamente."
+  },
+  "common": {
+    "load_more": "Carregar Mais",
+    "loading": "A carregar..."
+  },
+  "not_found": {
+    "title": "Página Não Encontrada",
+    "text": "A página que procura não existe ou foi removida.",
+    "back": "Voltar ao Início"
+  },
+  "footer": {
+    "about_title": "Sobre o Welwitschia Notícias",
+    "about_text": "Portal de notícias da Embaixada da República de Angola na Alemanha. Informação sobre Angola, relações bilaterais, cultura e comunidade angolana na diáspora.",
+    "categories": "Secções",
+    "embassy": "Embaixada",
+    "copyright": "Embaixada da República de Angola na Alemanha. Todos os direitos reservados."
+  }
+}

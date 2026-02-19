@@ -1,0 +1,36 @@
+<section class="newsletter">
+  <div class="newsletter__container">
+    <div class="newsletter__content">
+      <h2 class="newsletter__heading">{{ 'newsletter.heading' | translate }}</h2>
+      <p class="newsletter__text">{{ 'newsletter.text' | translate }}</p>
+    </div>
+
+    <div class="newsletter__form-wrap">
+      @switch (status()) {
+        @case ('success') {
+          <div class="newsletter__success">
+            <span class="material-icons-outlined">check_circle</span>
+            <p>{{ 'newsletter.success' | translate }}</p>
+          </div>
+        }
+        @default {
+          <form class="newsletter__form" (submit)="$event.preventDefault(); subscribe()">
+            <input
+              type="email"
+              class="newsletter__input"
+              [placeholder]="'newsletter.email_placeholder' | translate"
+              [(ngModel)]="email"
+              name="email"
+              required>
+            <button type="submit" class="newsletter__btn" [disabled]="status() === 'loading'">
+              {{ 'newsletter.subscribe' | translate }}
+            </button>
+          </form>
+          @if (status() === 'error') {
+            <p class="newsletter__error">{{ 'newsletter.error' | translate }}</p>
+          }
+        }
+      }
+    </div>
+  </div>
+</section>

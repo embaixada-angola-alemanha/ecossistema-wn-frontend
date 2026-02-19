@@ -1,0 +1,85 @@
+<!-- Featured hero section -->
+@if (featured().length > 0) {
+  <section class="hero">
+    <div class="hero__container">
+      <div class="hero__main">
+        @let main = featured()[0];
+        <a [routerLink]="['/artigo', main.slug]" class="hero__card hero__card--large">
+          <div class="hero__image-wrap">
+            <div class="hero__placeholder">
+              <span class="material-icons-outlined">newspaper</span>
+            </div>
+          </div>
+          <div class="hero__content">
+            @if (main.category) {
+              <span class="hero__category" [style.background-color]="main.category.cor || 'var(--ember)'">
+                {{ main.category | localized:'nome' }}
+              </span>
+            }
+            <h2 class="hero__title">{{ main | localized:'titulo' }}</h2>
+            <p class="hero__excerpt">{{ main | localized:'excerto' }}</p>
+            <span class="hero__date">{{ main.publishedAt | date:'longDate' }}</span>
+          </div>
+        </a>
+      </div>
+
+      @if (featured().length > 1) {
+        <div class="hero__sidebar">
+          @for (article of featured().slice(1, 4); track article.id) {
+            <a [routerLink]="['/artigo', article.slug]" class="hero__card hero__card--small">
+              @if (article.category) {
+                <span class="hero__category hero__category--sm" [style.background-color]="article.category.cor || 'var(--ember)'">
+                  {{ article.category | localized:'nome' }}
+                </span>
+              }
+              <h3 class="hero__title hero__title--sm">{{ article | localized:'titulo' }}</h3>
+              <span class="hero__date">{{ article.publishedAt | date:'mediumDate' }}</span>
+            </a>
+          }
+        </div>
+      }
+    </div>
+  </section>
+}
+
+<!-- Latest articles grid -->
+@if (latest().length > 0) {
+  <section class="latest">
+    <div class="latest__container">
+      <h2 class="latest__heading">{{ 'home.latest' | translate }}</h2>
+      <div class="latest__grid">
+        @for (article of latest(); track article.id) {
+          <a [routerLink]="['/artigo', article.slug]" class="article-card">
+            <div class="article-card__image">
+              <div class="article-card__placeholder">
+                <span class="material-icons-outlined">article</span>
+              </div>
+            </div>
+            <div class="article-card__body">
+              @if (article.category) {
+                <span class="article-card__category" [style.color]="article.category.cor || 'var(--ember)'">
+                  {{ article.category | localized:'nome' }}
+                </span>
+              }
+              <h3 class="article-card__title">{{ article | localized:'titulo' }}</h3>
+              <p class="article-card__excerpt">{{ article | localized:'excerto' }}</p>
+              <div class="article-card__meta">
+                @if (article.author) {
+                  <span class="article-card__author">{{ article.author.nome }}</span>
+                }
+                <span class="article-card__date">{{ article.publishedAt | date:'mediumDate' }}</span>
+              </div>
+            </div>
+          </a>
+        }
+      </div>
+
+      <div class="latest__more">
+        <a routerLink="/arquivo" class="btn btn--outline">{{ 'home.view_all' | translate }}</a>
+      </div>
+    </div>
+  </section>
+}
+
+<!-- Newsletter signup -->
+<wn-newsletter-signup />

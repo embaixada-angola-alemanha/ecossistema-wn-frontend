@@ -1,0 +1,112 @@
+@if (article(); as art) {
+  <article class="article-page">
+    <div class="article-page__container">
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs">
+        <a routerLink="/">{{ 'nav.home' | translate }}</a>
+        @if (art.category) {
+          <span class="breadcrumbs__sep">/</span>
+          <a [routerLink]="['/categoria', art.category.slug]">{{ art.category | localized:'nome' }}</a>
+        }
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">{{ art | localized:'titulo' }}</span>
+      </nav>
+
+      <!-- Article header -->
+      <header class="article-page__header">
+        @if (art.category) {
+          <a [routerLink]="['/categoria', art.category.slug]"
+             class="article-page__category" [style.color]="art.category.cor || 'var(--ember)'">
+            {{ art.category | localized:'nome' }}
+          </a>
+        }
+        <h1 class="article-page__title">{{ art | localized:'titulo' }}</h1>
+
+        @if (art | localized:'excerto'; as excerpt) {
+          <p class="article-page__lead">{{ excerpt }}</p>
+        }
+
+        <div class="article-page__meta">
+          @if (art.author) {
+            <a [routerLink]="['/autor', art.author.slug]" class="article-page__author">
+              {{ art.author.nome }}
+            </a>
+          }
+          <time class="article-page__date">{{ art.publishedAt | date:'longDate' }}</time>
+          <span class="article-page__views">{{ art.viewCount }} {{ 'article.views' | translate }}</span>
+        </div>
+      </header>
+
+      <!-- Featured image placeholder -->
+      <div class="article-page__image">
+        <div class="article-page__image-placeholder">
+          <span class="material-icons-outlined">photo_camera</span>
+        </div>
+      </div>
+
+      <!-- Article body -->
+      <div class="article-page__body" [innerHTML]="art | localized:'conteudo'"></div>
+
+      <!-- Tags -->
+      @if (art.tags.length > 0) {
+        <div class="article-page__tags">
+          <span class="article-page__tags-label">{{ 'article.tags' | translate }}:</span>
+          @for (tag of art.tags; track tag.id) {
+            <a [routerLink]="['/tag', tag.slug]" class="article-page__tag">
+              {{ tag | localized:'nome' }}
+            </a>
+          }
+        </div>
+      }
+
+      <!-- Share buttons -->
+      @if (shareLinks(); as share) {
+        <div class="article-page__share">
+          <span class="article-page__share-label">{{ 'article.share' | translate }}:</span>
+          <a [href]="share.shareLinks['facebook']" target="_blank" rel="noopener" class="share-btn share-btn--facebook" title="Facebook">
+            Facebook
+          </a>
+          <a [href]="share.shareLinks['twitter']" target="_blank" rel="noopener" class="share-btn share-btn--twitter" title="Twitter">
+            Twitter
+          </a>
+          <a [href]="share.shareLinks['linkedin']" target="_blank" rel="noopener" class="share-btn share-btn--linkedin" title="LinkedIn">
+            LinkedIn
+          </a>
+          <a [href]="share.shareLinks['whatsapp']" target="_blank" rel="noopener" class="share-btn share-btn--whatsapp" title="WhatsApp">
+            WhatsApp
+          </a>
+          <a [href]="share.shareLinks['telegram']" target="_blank" rel="noopener" class="share-btn share-btn--telegram" title="Telegram">
+            Telegram
+          </a>
+          <a [href]="share.shareLinks['email']" class="share-btn share-btn--email" title="Email">
+            Email
+          </a>
+        </div>
+      }
+    </div>
+
+    <!-- Related articles -->
+    @if (relatedArticles().length > 0) {
+      <section class="related">
+        <div class="related__container">
+          <h2 class="related__heading">{{ 'article.related' | translate }}</h2>
+          <div class="related__grid">
+            @for (rel of relatedArticles(); track rel.id) {
+              <a [routerLink]="['/artigo', rel.slug]" class="article-card">
+                <div class="article-card__image">
+                  <div class="article-card__placeholder">
+                    <span class="material-icons-outlined">article</span>
+                  </div>
+                </div>
+                <div class="article-card__body">
+                  <h3 class="article-card__title">{{ rel | localized:'titulo' }}</h3>
+                  <span class="article-card__date">{{ rel.publishedAt | date:'mediumDate' }}</span>
+                </div>
+              </a>
+            }
+          </div>
+        </div>
+      </section>
+    }
+  </article>
+}

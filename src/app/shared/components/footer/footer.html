@@ -1,0 +1,45 @@
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer__grid">
+      <!-- About -->
+      <div class="footer__col">
+        <h3 class="footer__title">{{ 'footer.about_title' | translate }}</h3>
+        <p class="footer__text">{{ 'footer.about_text' | translate }}</p>
+        <div class="footer__feeds">
+          <a href="/api/v1/feed/rss" target="_blank" class="footer__feed-link">
+            <span class="material-icons-outlined">rss_feed</span> RSS
+          </a>
+          <a href="/api/v1/feed/atom" target="_blank" class="footer__feed-link">
+            <span class="material-icons-outlined">rss_feed</span> Atom
+          </a>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="footer__col">
+        <h3 class="footer__title">{{ 'footer.categories' | translate }}</h3>
+        <nav class="footer__nav">
+          <a routerLink="/arquivo" class="footer__link">{{ 'nav.archive' | translate }}</a>
+          <a routerLink="/pesquisa" class="footer__link">{{ 'nav.search' | translate }}</a>
+        </nav>
+      </div>
+
+      <!-- Embassy -->
+      <div class="footer__col">
+        <h3 class="footer__title">{{ 'footer.embassy' | translate }}</h3>
+        <p class="footer__text">
+          Wallstraße 58<br>
+          10179 Berlin, Deutschland<br>
+          Tel: +49 30 240 897 60
+        </p>
+        <a href="https://www.angola-botschaft.de" target="_blank" rel="noopener" class="footer__link">
+          angola-botschaft.de
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; {{ currentYear }} Welwitschia Notícias — {{ 'footer.copyright' | translate }}</p>
+    </div>
+  </div>
+</footer>

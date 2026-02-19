@@ -1,0 +1,73 @@
+{
+  "header": {
+    "edition": "Digital Edition",
+    "tagline": "Embassy of the Republic of Angola in Germany"
+  },
+  "nav": {
+    "home": "Home",
+    "archive": "Archive",
+    "search": "Search"
+  },
+  "home": {
+    "title": "Home",
+    "latest": "Latest News",
+    "view_all": "View All News"
+  },
+  "article": {
+    "title": "Article",
+    "views": "views",
+    "tags": "Tags",
+    "share": "Share",
+    "related": "Related Articles"
+  },
+  "category": {
+    "title": "Category"
+  },
+  "tag": {
+    "title": "Tag",
+    "label": "Tag"
+  },
+  "author": {
+    "title": "Author",
+    "articles_by": "Articles by Author"
+  },
+  "archive": {
+    "title": "News Archive",
+    "heading": "Archive",
+    "filter_category": "Filter by category",
+    "filter_all": "All",
+    "no_results": "No articles found."
+  },
+  "search": {
+    "title": "Search",
+    "heading": "Search Results",
+    "placeholder": "Search articles...",
+    "results_for": "Results for",
+    "no_results": "No results found."
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "heading": "Get Our News",
+    "text": "Subscribe to our newsletter and receive the latest news in your inbox.",
+    "email_placeholder": "Your email",
+    "subscribe": "Subscribe",
+    "success": "Successfully subscribed! Check your email.",
+    "error": "Subscription failed. Please try again."
+  },
+  "common": {
+    "load_more": "Load More",
+    "loading": "Loading..."
+  },
+  "not_found": {
+    "title": "Page Not Found",
+    "text": "The page you are looking for does not exist or has been removed.",
+    "back": "Back to Home"
+  },
+  "footer": {
+    "about_title": "About Welwitschia Notícias",
+    "about_text": "News portal of the Embassy of the Republic of Angola in Germany. Information about Angola, bilateral relations, culture and the Angolan community in the diaspora.",
+    "categories": "Sections",
+    "embassy": "Embassy",
+    "copyright": "Embassy of the Republic of Angola in Germany. All rights reserved."
+  }
+}

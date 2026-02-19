@@ -1,0 +1,94 @@
+<div class="archive">
+  <div class="archive__container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+      <a routerLink="/">{{ 'nav.home' | translate }}</a>
+      <span class="breadcrumbs__sep">/</span>
+      <span class="breadcrumbs__current">{{ 'archive.heading' | translate }}</span>
+    </nav>
+
+    <h1 class="archive__heading">{{ 'archive.heading' | translate }}</h1>
+
+    <!-- Filters -->
+    <div class="archive__filters">
+      <!-- Category filters -->
+      <div class="archive__filter-group">
+        <span class="archive__filter-label">{{ 'archive.filter_category' | translate }}:</span>
+        <button class="archive__filter-btn"
+                [class.archive__filter-btn--active]="!selectedCategory()"
+                (click)="clearFilters()">
+          {{ 'archive.filter_all' | translate }}
+        </button>
+        @for (cat of categories(); track cat.id) {
+          <button class="archive__filter-btn"
+                  [class.archive__filter-btn--active]="selectedCategory() === cat.id"
+                  [style.--filter-color]="cat.cor || 'var(--ember)'"
+                  (click)="filterByCategory(cat.id)">
+            {{ cat | localized:'nome' }}
+          </button>
+        }
+      </div>
+
+      <!-- Tag filters -->
+      @if (tags().length > 0) {
+        <div class="archive__filter-group archive__filter-group--tags">
+          @for (tag of tags(); track tag.id) {
+            <button class="archive__tag-btn"
+                    [class.archive__tag-btn--active]="selectedTag() === tag.id"
+                    (click)="filterByTag(tag.id)">
+              #{{ tag | localized:'nome' }}
+            </button>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Results count -->
+    <p class="archive__count">{{ totalElements() }} {{ 'archive.heading' | translate | lowercase }}</p>
+
+    <!-- Articles grid -->
+    @if (articles().length > 0) {
+      <div class="archive__grid">
+        @for (article of articles(); track article.id) {
+          <a [routerLink]="['/artigo', article.slug]" class="archive__item">
+            <div class="archive__item-image">
+              <div class="archive__item-placeholder">
+                <span class="material-icons-outlined">article</span>
+              </div>
+            </div>
+            <div class="archive__item-body">
+              @if (article.category) {
+                <span class="archive__item-category" [style.color]="article.category.cor || 'var(--ember)'">
+                  {{ article.category | localized:'nome' }}
+                </span>
+              }
+              <h3 class="archive__item-title">{{ article | localized:'titulo' }}</h3>
+              <p class="archive__item-excerpt">{{ article | localized:'excerto' }}</p>
+              <div class="archive__item-meta">
+                @if (article.author) {
+                  <span class="archive__item-author">{{ article.author.nome }}</span>
+                }
+                <time>{{ article.publishedAt | date:'mediumDate' }}</time>
+                <span class="archive__item-views">{{ article.viewCount }} {{ 'article.views' | translate }}</span>
+              </div>
+            </div>
+          </a>
+        }
+      </div>
+    } @else if (!loading()) {
+      <p class="archive__empty">{{ 'archive.no_results' | translate }}</p>
+    }
+
+    <!-- Load more (infinite scroll trigger) -->
+    @if (hasMore() && !loading()) {
+      <div class="load-more">
+        <button class="btn btn--outline" (click)="loadMore()">{{ 'common.load_more' | translate }}</button>
+      </div>
+    }
+    @if (loading()) {
+      <div class="load-more">
+        <span class="archive__loading">{{ 'common.loading' | translate }}</span>
+      </div>
+    }
+  </div>
+</div>
