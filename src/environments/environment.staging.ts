@@ -1,7 +1,7 @@
 export const environment = {
-  production: true,
+  production: false,
   apiBaseUrl: '/api/v1/public',
-  siteUrl: 'https://wn.embaixada-angola.site',
+  siteUrl: 'https://stg-wn.embaixada-angola.site',
   siteName: 'Welwitschia Noticias',
   defaultLang: 'pt',
   supportedLangs: ['pt', 'en', 'de'],

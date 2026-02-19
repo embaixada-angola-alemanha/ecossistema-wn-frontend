@@ -36,7 +36,26 @@
                 { "type": "initial", "maximumWarning": "500kB", "maximumError": "1.5MB" },
                 { "type": "anyComponentStyle", "maximumWarning": "4kB", "maximumError": "8kB" }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "staging": {
+              "budgets": [
+                { "type": "initial", "maximumWarning": "500kB", "maximumError": "1.5MB" },
+                { "type": "anyComponentStyle", "maximumWarning": "4kB", "maximumError": "8kB" }
+              ],
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
@@ -51,6 +70,7 @@
           "options": { "proxyConfig": "src/proxy.conf.json" },
           "configurations": {
             "production": { "buildTarget": "wn-frontend:build:production" },
+            "staging": { "buildTarget": "wn-frontend:build:staging" },
             "development": { "buildTarget": "wn-frontend:build:development" }
           },
           "defaultConfiguration": "development"
