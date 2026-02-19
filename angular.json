@@ -19,8 +19,6 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/wn-frontend",
-            "index": "src/index.html",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -28,8 +26,7 @@
               { "glob": "**/*", "input": "public" },
               { "glob": "**/*", "input": "src/assets", "output": "/assets" }
             ],
-            "styles": ["src/styles.scss"],
-            "polyfills": ["zone.js"]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {

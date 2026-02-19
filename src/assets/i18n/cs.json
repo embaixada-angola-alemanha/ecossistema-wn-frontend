@@ -1,0 +1,73 @@
+{
+  "header": {
+    "edition": "Digitální vydání",
+    "tagline": "Velvyslanectví Angolské republiky v Německu"
+  },
+  "nav": {
+    "home": "Úvod",
+    "archive": "Archiv",
+    "search": "Hledat"
+  },
+  "home": {
+    "title": "Úvod",
+    "latest": "Nejnovější zprávy",
+    "view_all": "Zobrazit všechny zprávy"
+  },
+  "article": {
+    "title": "Článek",
+    "views": "zobrazení",
+    "tags": "Štítky",
+    "share": "Sdílet",
+    "related": "Související články"
+  },
+  "category": {
+    "title": "Kategorie"
+  },
+  "tag": {
+    "title": "Štítek",
+    "label": "Štítek"
+  },
+  "author": {
+    "title": "Autor",
+    "articles_by": "Články autora"
+  },
+  "archive": {
+    "title": "Archiv zpráv",
+    "heading": "Archiv",
+    "filter_category": "Filtrovat podle kategorie",
+    "filter_all": "Vše",
+    "no_results": "Nebyly nalezeny žádné články."
+  },
+  "search": {
+    "title": "Hledání",
+    "heading": "Výsledky hledání",
+    "placeholder": "Hledat články...",
+    "results_for": "Výsledky pro",
+    "no_results": "Nebyly nalezeny žádné výsledky."
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "heading": "Odebírejte naše zprávy",
+    "text": "Přihlaste se k odběru newsletteru a dostávejte nejnovější zprávy na svůj e-mail.",
+    "email_placeholder": "Váš e-mail",
+    "subscribe": "Odebírat",
+    "success": "Úspěšně přihlášeno! Zkontrolujte svůj e-mail.",
+    "error": "Přihlášení selhalo. Zkuste to znovu."
+  },
+  "common": {
+    "load_more": "Načíst další",
+    "loading": "Načítání..."
+  },
+  "not_found": {
+    "title": "Stránka nenalezena",
+    "text": "Stránka, kterou hledáte, neexistuje nebo byla odstraněna.",
+    "back": "Zpět na úvod"
+  },
+  "footer": {
+    "about_title": "O Welwitschia Notícias",
+    "about_text": "Zpravodajský portál Velvyslanectví Angolské republiky v Německu. Informace o Angole, bilaterálních vztazích, kultuře a angolské komunitě v diaspoře.",
+    "categories": "Rubriky",
+    "embassy": "Velvyslanectví",
+    "copyright": "Velvyslanectví Angolské republiky v Německu. Všechna práva vyhrazena."
+  }
+}
