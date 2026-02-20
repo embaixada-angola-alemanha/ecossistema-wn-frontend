@@ -30,7 +30,8 @@
         type="search"
         class="masthead__search-input"
         [placeholder]="'search.placeholder' | translate"
-        [(ngModel)]="searchQuery">
+        [(ngModel)]="searchQuery"
+        name="q">
       <a [routerLink]="['/pesquisa']" [queryParams]="{q: searchQuery()}"
          class="masthead__search-btn">
         <span class="material-icons-outlined">search</span>
