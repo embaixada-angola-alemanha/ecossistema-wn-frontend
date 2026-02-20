@@ -29,6 +29,10 @@
   }
   &__body {
     font: 1.1rem/1.8 var(--font-heading); color: var(--text-primary); margin-bottom: 2rem;
+    text-align: justify;
+    hyphens: auto; -webkit-hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: break-word;
     // parskip style: vertical space between paragraphs, no indent
     p { margin: 0 0 1.5em; text-indent: 0; }
     h2, h3 { margin: 2rem 0 1rem; font-family: var(--font-masthead); }
