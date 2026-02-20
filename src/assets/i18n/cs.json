@@ -19,6 +19,9 @@
     "views": "zobrazení",
     "tags": "Štítky",
     "share": "Sdílet",
+    "copyLink": "Kopírovat odkaz",
+    "copied": "Odkaz zkopírován!",
+    "author": "Autor",
     "related": "Související články"
   },
   "category": {

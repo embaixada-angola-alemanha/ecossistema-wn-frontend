@@ -19,6 +19,9 @@
     "views": "Aufrufe",
     "tags": "Tags",
     "share": "Teilen",
+    "copyLink": "Link kopieren",
+    "copied": "Link kopiert!",
+    "author": "Autor",
     "related": "Verwandte Artikel"
   },
   "category": {

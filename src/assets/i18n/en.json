@@ -19,6 +19,9 @@
     "views": "views",
     "tags": "Tags",
     "share": "Share",
+    "copyLink": "Copy link",
+    "copied": "Link copied!",
+    "author": "Author",
     "related": "Related Articles"
   },
   "category": {
