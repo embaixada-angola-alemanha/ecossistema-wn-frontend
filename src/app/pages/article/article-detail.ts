@@ -7,12 +7,13 @@ import { SeoService } from '@core/services/seo.service';
 import { LanguageService } from '@core/services/language.service';
 import { Article, ShareLinks } from '@core/models/article.model';
 import { LocalizedPipe } from '@shared/pipes/localized.pipe';
+import { ImageUrlPipe } from '@shared/pipes/image-url.pipe';
 import { environment } from '@env/environment';
 
 @Component({
   selector: 'wn-article-detail',
   standalone: true,
-  imports: [RouterLink, TranslateModule, LocalizedPipe, DatePipe],
+  imports: [RouterLink, TranslateModule, LocalizedPipe, ImageUrlPipe, DatePipe],
   templateUrl: './article-detail.html',
   styleUrl: './article-detail.scss'
 })

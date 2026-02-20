@@ -22,9 +22,20 @@
 <header class="masthead">
   <div class="masthead__container">
     <a routerLink="/" class="masthead__brand">
-      <span class="masthead__name">Welwitschia Notícias</span>
-      <span class="masthead__tagline">{{ 'header.tagline' | translate }}</span>
+      <img src="assets/images/welwitschia-logo.png" alt="Welwitschia Notícias" class="masthead__logo-img">
     </a>
+
+    <form class="masthead__search" (submit)="$event.preventDefault()">
+      <input
+        type="search"
+        class="masthead__search-input"
+        [placeholder]="'search.placeholder' | translate"
+        [(ngModel)]="searchQuery">
+      <a [routerLink]="['/pesquisa']" [queryParams]="{q: searchQuery()}"
+         class="masthead__search-btn">
+        <span class="material-icons-outlined">search</span>
+      </a>
+    </form>
 
     <button class="masthead__hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">
       <span class="material-icons-outlined">{{ menuOpen() ? 'close' : 'menu' }}</span>
@@ -45,27 +56,5 @@
     }
     <a routerLink="/arquivo" routerLinkActive="catnav__link--active"
        class="catnav__link">{{ 'nav.archive' | translate }}</a>
-
-    <button class="catnav__search-btn" (click)="toggleSearch()">
-      <span class="material-icons-outlined">search</span>
-    </button>
   </div>
-
-  @if (searchOpen()) {
-    <div class="catnav__search-bar">
-      <form class="catnav__search-form" (submit)="$event.preventDefault()">
-        <input
-          type="search"
-          class="catnav__search-input"
-          [placeholder]="'search.placeholder' | translate"
-          [(ngModel)]="searchQuery"
-          (keyup.enter)="searchOpen.set(false)"
-          autofocus>
-        <a [routerLink]="['/pesquisa']" [queryParams]="{q: searchQuery()}"
-           class="catnav__search-submit" (click)="searchOpen.set(false)">
-          <span class="material-icons-outlined">search</span>
-        </a>
-      </form>
-    </div>
-  }
 </nav>

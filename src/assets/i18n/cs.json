@@ -11,7 +11,8 @@
   "home": {
     "title": "Úvod",
     "latest": "Nejnovější zprávy",
-    "view_all": "Zobrazit všechny zprávy"
+    "view_all": "Zobrazit všechny zprávy",
+    "read_more": "Číst dále"
   },
   "article": {
     "title": "Článek",

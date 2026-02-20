@@ -40,13 +40,13 @@
 
 .search-result {
   display: block;
-  padding: 1.25rem 0;
+  padding: 1.25rem 1rem;
   border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: var(--text-primary);
   transition: background 0.2s;
 
-  &:hover { background: var(--bg-warm); margin: 0 -1rem; padding: 1.25rem 1rem; border-radius: 4px; }
+  &:hover { background: var(--cream); border-radius: 10px; }
   &:last-child { border-bottom: none; }
 
   &__category {

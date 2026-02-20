@@ -6,6 +6,7 @@ import { SeoService } from '@core/services/seo.service';
 import { LanguageService } from '@core/services/language.service';
 import { Article, Category } from '@core/models/article.model';
 import { LocalizedPipe } from '@shared/pipes/localized.pipe';
+import { ImageUrlPipe } from '@shared/pipes/image-url.pipe';
 import { NewsletterSignup } from '@shared/components/newsletter-signup/newsletter-signup';
 import { DatePipe } from '@angular/common';
 import { forkJoin } from 'rxjs';
@@ -13,7 +14,7 @@ import { forkJoin } from 'rxjs';
 @Component({
   selector: 'wn-home',
   standalone: true,
-  imports: [RouterLink, TranslateModule, LocalizedPipe, DatePipe, NewsletterSignup],
+  imports: [RouterLink, TranslateModule, LocalizedPipe, ImageUrlPipe, DatePipe, NewsletterSignup],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })

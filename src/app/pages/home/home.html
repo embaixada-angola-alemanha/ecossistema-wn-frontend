@@ -1,44 +1,27 @@
-<!-- Featured hero section -->
+<!-- Featured hero — full width -->
 @if (featured().length > 0) {
+  @let main = featured()[0];
   <section class="hero">
-    <div class="hero__container">
-      <div class="hero__main">
-        @let main = featured()[0];
-        <a [routerLink]="['/artigo', main.slug]" class="hero__card hero__card--large">
-          <div class="hero__image-wrap">
-            <div class="hero__placeholder">
-              <span class="material-icons-outlined">newspaper</span>
-            </div>
-          </div>
-          <div class="hero__content">
-            @if (main.category) {
-              <span class="hero__category" [style.background-color]="main.category.cor || 'var(--ember)'">
-                {{ main.category | localized:'nome' }}
-              </span>
-            }
-            <h2 class="hero__title">{{ main | localized:'titulo' }}</h2>
-            <p class="hero__excerpt">{{ main | localized:'excerto' }}</p>
-            <span class="hero__date">{{ main.publishedAt | date:'longDate' }}</span>
-          </div>
-        </a>
-      </div>
-
-      @if (featured().length > 1) {
-        <div class="hero__sidebar">
-          @for (article of featured().slice(1, 4); track article.id) {
-            <a [routerLink]="['/artigo', article.slug]" class="hero__card hero__card--small">
-              @if (article.category) {
-                <span class="hero__category hero__category--sm" [style.background-color]="article.category.cor || 'var(--ember)'">
-                  {{ article.category | localized:'nome' }}
-                </span>
-              }
-              <h3 class="hero__title hero__title--sm">{{ article | localized:'titulo' }}</h3>
-              <span class="hero__date">{{ article.publishedAt | date:'mediumDate' }}</span>
-            </a>
-          }
-        </div>
+    <a [routerLink]="['/artigo', main.slug]" class="hero__link">
+      @if (main.featuredImageId) {
+        <img [src]="main.featuredImageId | imageUrl" [alt]="main | localized:'titulo'" class="hero__cover" loading="eager">
+      } @else {
+        <div class="hero__placeholder"></div>
       }
-    </div>
+      <div class="hero__overlay">
+        <div class="hero__content">
+          @if (main.category) {
+            <span class="cat-tag">{{ main.category | localized:'nome' }}</span>
+          }
+          <h2 class="hero__title">{{ main | localized:'titulo' }}</h2>
+          <p class="hero__excerpt">{{ main | localized:'excerto' }}</p>
+          <div class="hero__meta">
+            @if (main.author) { {{ main.author.nome }} · }
+            {{ main.publishedAt | date:'longDate' }}
+          </div>
+        </div>
+      </div>
+    </a>
   </section>
 }
 
@@ -46,28 +29,32 @@
 @if (latest().length > 0) {
   <section class="latest">
     <div class="latest__container">
-      <h2 class="latest__heading">{{ 'home.latest' | translate }}</h2>
-      <div class="latest__grid">
+      <div class="articles-label">{{ 'home.latest' | translate }}</div>
+      <div class="articles-grid">
         @for (article of latest(); track article.id) {
-          <a [routerLink]="['/artigo', article.slug]" class="article-card">
-            <div class="article-card__image">
-              <div class="article-card__placeholder">
-                <span class="material-icons-outlined">article</span>
-              </div>
-            </div>
-            <div class="article-card__body">
+          <a [routerLink]="['/artigo', article.slug]" class="art-card">
+            <div class="art-card__img">
               @if (article.category) {
-                <span class="article-card__category" [style.color]="article.category.cor || 'var(--ember)'">
+                <span class="cat-tag" [style.background-color]="article.category.cor || 'var(--ember)'">
                   {{ article.category | localized:'nome' }}
                 </span>
               }
-              <h3 class="article-card__title">{{ article | localized:'titulo' }}</h3>
-              <p class="article-card__excerpt">{{ article | localized:'excerto' }}</p>
-              <div class="article-card__meta">
+              @if (article.featuredImageId) {
+                <img [src]="article.featuredImageId | imageUrl" [alt]="article | localized:'titulo'" class="art-card__cover" loading="lazy">
+              } @else {
+                <div class="art-card__placeholder">
+                  <span class="material-icons-outlined">article</span>
+                </div>
+              }
+            </div>
+            <div class="art-card__body">
+              <h3 class="art-card__title">{{ article | localized:'titulo' }}</h3>
+              <p class="art-card__excerpt">{{ article | localized:'excerto' }}</p>
+              <div class="art-card__meta">
                 @if (article.author) {
-                  <span class="article-card__author">{{ article.author.nome }}</span>
+                  <span class="art-card__author">{{ article.author.nome }}</span>
                 }
-                <span class="article-card__date">{{ article.publishedAt | date:'mediumDate' }}</span>
+                <span class="art-card__date">{{ article.publishedAt | date:'mediumDate' }}</span>
               </div>
             </div>
           </a>

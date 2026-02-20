@@ -11,7 +11,8 @@
   "home": {
     "title": "Startseite",
     "latest": "Aktuelle Nachrichten",
-    "view_all": "Alle Nachrichten anzeigen"
+    "view_all": "Alle Nachrichten anzeigen",
+    "read_more": "Weiterlesen"
   },
   "article": {
     "title": "Artikel",

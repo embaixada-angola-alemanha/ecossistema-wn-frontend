@@ -32,7 +32,7 @@
             "production": {
               "budgets": [
                 { "type": "initial", "maximumWarning": "500kB", "maximumError": "1.5MB" },
-                { "type": "anyComponentStyle", "maximumWarning": "4kB", "maximumError": "8kB" }
+                { "type": "anyComponentStyle", "maximumWarning": "5kB", "maximumError": "8kB" }
               ],
               "outputHashing": "all",
               "fileReplacements": [
@@ -45,7 +45,7 @@
             "staging": {
               "budgets": [
                 { "type": "initial", "maximumWarning": "500kB", "maximumError": "1.5MB" },
-                { "type": "anyComponentStyle", "maximumWarning": "4kB", "maximumError": "8kB" }
+                { "type": "anyComponentStyle", "maximumWarning": "5kB", "maximumError": "8kB" }
               ],
               "outputHashing": "all",
               "fileReplacements": [

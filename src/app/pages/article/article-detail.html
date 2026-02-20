@@ -37,11 +37,15 @@
         </div>
       </header>
 
-      <!-- Featured image placeholder -->
+      <!-- Featured image -->
       <div class="article-page__image">
-        <div class="article-page__image-placeholder">
-          <span class="material-icons-outlined">photo_camera</span>
-        </div>
+        @if (art.featuredImageId) {
+          <img [src]="art.featuredImageId | imageUrl" [alt]="art | localized:'titulo'" class="article-page__cover" loading="eager">
+        } @else {
+          <div class="article-page__image-placeholder">
+            <span class="material-icons-outlined">photo_camera</span>
+          </div>
+        }
       </div>
 
       <!-- Article body -->
@@ -94,9 +98,13 @@
             @for (rel of relatedArticles(); track rel.id) {
               <a [routerLink]="['/artigo', rel.slug]" class="article-card">
                 <div class="article-card__image">
-                  <div class="article-card__placeholder">
-                    <span class="material-icons-outlined">article</span>
-                  </div>
+                  @if (rel.featuredImageId) {
+                    <img [src]="rel.featuredImageId | imageUrl" [alt]="rel | localized:'titulo'" class="article-card__cover" loading="lazy">
+                  } @else {
+                    <div class="article-card__placeholder">
+                      <span class="material-icons-outlined">article</span>
+                    </div>
+                  }
                 </div>
                 <div class="article-card__body">
                   <h3 class="article-card__title">{{ rel | localized:'titulo' }}</h3>

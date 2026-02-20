@@ -7,11 +7,12 @@ import { LanguageService } from '@core/services/language.service';
 import { SeoService } from '@core/services/seo.service';
 import { Article, Category } from '@core/models/article.model';
 import { LocalizedPipe } from '@shared/pipes/localized.pipe';
+import { ImageUrlPipe } from '@shared/pipes/image-url.pipe';
 
 @Component({
   selector: 'wn-category-page',
   standalone: true,
-  imports: [RouterLink, TranslateModule, LocalizedPipe, DatePipe],
+  imports: [RouterLink, TranslateModule, LocalizedPipe, ImageUrlPipe, DatePipe],
   templateUrl: './category-page.html',
   styleUrl: './category-page.scss'
 })

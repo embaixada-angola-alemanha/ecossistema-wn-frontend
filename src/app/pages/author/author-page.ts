@@ -7,11 +7,12 @@ import { LanguageService } from '@core/services/language.service';
 import { SeoService } from '@core/services/seo.service';
 import { Article } from '@core/models/article.model';
 import { LocalizedPipe } from '@shared/pipes/localized.pipe';
+import { ImageUrlPipe } from '@shared/pipes/image-url.pipe';
 
 @Component({
   selector: 'wn-author-page',
   standalone: true,
-  imports: [RouterLink, TranslateModule, LocalizedPipe, DatePipe],
+  imports: [RouterLink, TranslateModule, LocalizedPipe, ImageUrlPipe, DatePipe],
   template: `
     <div class="author-page">
       <div class="author-page__container">
@@ -21,9 +22,13 @@ import { LocalizedPipe } from '@shared/pipes/localized.pipe';
           @for (article of articles(); track article.id) {
             <a [routerLink]="['/artigo', article.slug]" class="article-card">
               <div class="article-card__image">
-                <div class="article-card__placeholder">
-                  <span class="material-icons-outlined">article</span>
-                </div>
+                @if (article.featuredImageId) {
+                  <img [src]="article.featuredImageId | imageUrl" [alt]="article | localized:'titulo'" class="article-card__cover" loading="lazy">
+                } @else {
+                  <div class="article-card__placeholder">
+                    <span class="material-icons-outlined">article</span>
+                  </div>
+                }
               </div>
               <div class="article-card__body">
                 @if (article.category) {
@@ -51,6 +56,7 @@ import { LocalizedPipe } from '@shared/pipes/localized.pipe';
       &__container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
       &__title { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 2rem; }
     }
+    .article-card__cover { width: 100%; height: 100%; object-fit: cover; }
   `]
 })
 export class AuthorPage implements OnInit {

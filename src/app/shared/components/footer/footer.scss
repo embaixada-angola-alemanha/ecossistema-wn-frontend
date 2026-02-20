@@ -1,5 +1,8 @@
+/* ═══════════════════════════════════════════════════════
+   WN Footer — Prototype-conformant
+   ═══════════════════════════════════════════════════════ */
 .footer {
-  background: var(--text-primary);
+  background: var(--ink);
   color: var(--bg);
   font-family: var(--font-sans);
   margin-top: 4rem;
@@ -7,7 +10,7 @@
   &__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 1.5rem 1.5rem;
+    padding: 3rem 56px 1.5rem;
   }
 
   &__grid {
@@ -66,16 +69,19 @@
   &__bottom {
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     font-size: 0.75rem;
-    opacity: 0.6;
+    opacity: 0.5;
   }
 }
 
 @media (max-width: 768px) {
-  .footer__grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .footer {
+    &__container { padding: 3rem 1.5rem 1.5rem; }
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
   }
 }

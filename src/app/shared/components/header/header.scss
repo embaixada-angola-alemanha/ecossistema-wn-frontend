@@ -1,42 +1,49 @@
+/* ═══════════════════════════════════════════════════════
+   WN Header — Prototype-conformant
+   ═══════════════════════════════════════════════════════ */
+
 /* Topbar */
 .topbar {
-  background: var(--text-primary);
+  background: var(--ink);
   color: var(--bg);
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 11px;
+  height: 38px;
 
   &__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0.4rem 1.5rem;
+    padding: 0 56px;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   &__edition {
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.5px;
     text-transform: capitalize;
-    opacity: 0.8;
   }
 
   &__actions {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 16px;
   }
 
   &__link {
-    color: var(--bg);
-    opacity: 0.7;
-    transition: opacity 0.2s;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.2s;
+    text-decoration: none;
     .material-icons-outlined { font-size: 1rem; }
-    &:hover { opacity: 1; }
+    &:hover { color: #fff; }
   }
 
   &__lang {
     background: none;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: var(--bg);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.5);
     padding: 0.15rem 0.4rem;
     font-size: 0.65rem;
     font-weight: 600;
@@ -47,47 +54,76 @@
     &--active {
       background: var(--ember);
       border-color: var(--ember);
+      color: #fff;
     }
   }
 }
 
-/* Masthead */
+/* Masthead — dark background */
 .masthead {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  background: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
   &__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1.5rem;
+    padding: 16px 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 24px;
   }
 
   &__brand {
     text-decoration: none;
-    color: var(--text-primary);
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
   }
 
-  &__name {
-    font-family: var(--font-masthead);
-    font-style: italic;
-    font-size: 2.4rem;
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--text-primary);
+  &__logo-img {
+    height: 40px;
+    width: auto;
+    /* PNG logo has gold text on transparent — no filter needed on dark bg */
   }
 
-  &__tagline {
+  /* Search field — right side of masthead */
+  &__search {
+    display: flex;
+    align-items: center;
+    max-width: 320px;
+    width: 100%;
+  }
+
+  &__search-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    padding: 8px 14px;
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-top: 0.25rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    font-size: 13px;
+    color: #fff;
+    outline: none;
+
+    &::placeholder { color: rgba(255, 255, 255, 0.35); }
+    &:focus { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.12); }
+  }
+
+  &__search-btn {
+    background: var(--ember);
+    border: none;
+    border-radius: 0 4px 4px 0;
+    padding: 7px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    transition: background 0.2s;
+    .material-icons-outlined { font-size: 1.2rem; }
+    &:hover { background: var(--ember-dark); }
   }
 
   &__hamburger {
@@ -95,7 +131,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--text-primary);
+    color: #fff;
     .material-icons-outlined { font-size: 1.75rem; }
   }
 }
@@ -103,7 +139,7 @@
 /* Category navigation */
 .catnav {
   background: var(--surface);
-  border-bottom: 3px solid var(--ember);
+  border-bottom: 2px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -111,7 +147,7 @@
   &__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 56px;
     display: flex;
     align-items: center;
     gap: 0;
@@ -119,83 +155,36 @@
 
   &__link {
     display: block;
-    padding: 0.75rem 1rem;
+    padding: 14px 20px;
     font-family: var(--font-sans);
-    font-size: 0.85rem;
+    font-size: 12px;
     font-weight: 500;
-    color: var(--text-primary);
+    color: var(--text-muted);
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -3px;
+    letter-spacing: 0.3px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
     transition: all 0.2s;
     white-space: nowrap;
 
-    &:hover { color: var(--ember); }
+    &:hover { color: var(--text-primary); }
 
     &--active {
       color: var(--ember);
       border-bottom-color: var(--ember);
+      font-weight: 600;
     }
-
-    & + & {
-      border-left: 1px solid var(--gold-light);
-    }
-  }
-
-  &__search-btn {
-    margin-left: auto;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.75rem 0.5rem;
-    color: var(--text-muted);
-    transition: color 0.2s;
-    .material-icons-outlined { font-size: 1.25rem; }
-    &:hover { color: var(--ember); }
-  }
-
-  &__search-bar {
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    padding: 0.75rem 1.5rem;
-  }
-
-  &__search-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  &__search-input {
-    flex: 1;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    &:focus { outline: 2px solid var(--ember); border-color: var(--ember); }
-  }
-
-  &__search-submit {
-    background: var(--ember);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
   }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .topbar__container { padding: 0 1.5rem; }
+
   .masthead {
-    &__name { font-size: 1.6rem; }
+    &__container { padding: 12px 1.5rem; }
+    &__logo-img { height: 28px; }
+    &__search { display: none; }
     &__hamburger { display: block; }
   }
 
@@ -215,12 +204,6 @@
       padding: 0.75rem 1.5rem;
       border-bottom: 1px solid var(--border);
       margin-bottom: 0;
-      & + & { border-left: none; }
-    }
-
-    &__search-btn {
-      padding: 0.75rem 1.5rem;
-      text-align: left;
     }
   }
 }

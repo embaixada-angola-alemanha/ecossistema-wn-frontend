@@ -11,7 +11,8 @@
   "home": {
     "title": "Início",
     "latest": "Últimas Notícias",
-    "view_all": "Ver Todas as Notícias"
+    "view_all": "Ver Todas as Notícias",
+    "read_more": "Ler Mais"
   },
   "article": {
     "title": "Artigo",

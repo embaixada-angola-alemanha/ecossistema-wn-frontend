@@ -52,9 +52,13 @@
         @for (article of articles(); track article.id) {
           <a [routerLink]="['/artigo', article.slug]" class="archive__item">
             <div class="archive__item-image">
-              <div class="archive__item-placeholder">
-                <span class="material-icons-outlined">article</span>
-              </div>
+              @if (article.featuredImageId) {
+                <img [src]="article.featuredImageId | imageUrl" [alt]="article | localized:'titulo'" class="archive__item-cover" loading="lazy">
+              } @else {
+                <div class="archive__item-placeholder">
+                  <span class="material-icons-outlined">article</span>
+                </div>
+              }
             </div>
             <div class="archive__item-body">
               @if (article.category) {

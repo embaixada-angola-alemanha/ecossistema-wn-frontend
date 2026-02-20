@@ -7,12 +7,13 @@ import { LanguageService } from '@core/services/language.service';
 import { SeoService } from '@core/services/seo.service';
 import { Article, Category, Tag } from '@core/models/article.model';
 import { LocalizedPipe } from '@shared/pipes/localized.pipe';
+import { ImageUrlPipe } from '@shared/pipes/image-url.pipe';
 import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'wn-archive',
   standalone: true,
-  imports: [RouterLink, TranslateModule, LocalizedPipe, DatePipe, LowerCasePipe],
+  imports: [RouterLink, TranslateModule, LocalizedPipe, ImageUrlPipe, DatePipe, LowerCasePipe],
   templateUrl: './archive.html',
   styleUrl: './archive.scss'
 })

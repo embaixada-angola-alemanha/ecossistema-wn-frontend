@@ -20,7 +20,6 @@ export class Header {
   readonly languages = LANGUAGES;
   readonly categories = signal<Category[]>([]);
   readonly menuOpen = signal(false);
-  readonly searchOpen = signal(false);
   readonly searchQuery = signal('');
 
   constructor() {
@@ -29,10 +28,6 @@ export class Header {
 
   toggleMenu(): void {
     this.menuOpen.update(v => !v);
-  }
-
-  toggleSearch(): void {
-    this.searchOpen.update(v => !v);
   }
 
   today(): string {
