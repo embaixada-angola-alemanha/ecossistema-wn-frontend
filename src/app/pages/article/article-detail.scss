@@ -29,7 +29,8 @@
   }
   &__body {
     font: 1.1rem/1.8 var(--font-heading); color: var(--text-primary); margin-bottom: 2rem;
-    p { margin-bottom: 1.25rem; }
+    // parskip style: vertical space between paragraphs, no indent
+    p { margin: 0 0 1em; text-indent: 0; }
     h2, h3 { margin: 2rem 0 1rem; font-family: var(--font-masthead); }
     h4, h5, h6 { margin: 1.5rem 0 .75rem; font-family: var(--font-masthead); }
     blockquote {
