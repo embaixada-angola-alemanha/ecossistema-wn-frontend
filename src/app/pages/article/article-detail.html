@@ -49,7 +49,7 @@
       </div>
 
       <!-- Article body -->
-      <div class="article-page__body" [innerHTML]="art | localized:'conteudo'"></div>
+      <div class="article-page__body" [innerHTML]="art | localized:'conteudo' | articleContent"></div>
 
       <!-- Tags -->
       @if (art.tags.length > 0) {

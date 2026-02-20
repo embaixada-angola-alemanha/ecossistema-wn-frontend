@@ -30,12 +30,29 @@
   &__body {
     font: 1.1rem/1.8 var(--font-heading); color: var(--text-primary); margin-bottom: 2rem;
     p { margin-bottom: 1.25rem; }
-    h2, h3 { margin: 2rem 0 1rem; }
+    h2, h3 { margin: 2rem 0 1rem; font-family: var(--font-masthead); }
+    h4, h5, h6 { margin: 1.5rem 0 .75rem; font-family: var(--font-masthead); }
     blockquote {
       border-left: 4px solid var(--ember); padding: 1rem 1.5rem; margin: 1.5rem 0;
       font-style: italic; color: var(--text-body); background: var(--cream);
+      border-radius: 0 8px 8px 0;
     }
-    img { max-width: 100%; border-radius: 10px; }
+    img { max-width: 100%; height: auto; border-radius: 10px; display: block; }
+    figure {
+      margin: 1.5rem 0; text-align: center;
+      img { margin: 0 auto; }
+      figcaption { font: .85rem/1.4 var(--font-sans); color: var(--text-muted); margin-top: .5rem; }
+    }
+    p.has-drop-cap::first-letter {
+      font-size: 3.2em; float: left; line-height: .8;
+      margin: .05em .1em 0 0; font-weight: 700; color: var(--ember);
+    }
+    .has-medium-font-size { font-size: 1.25rem; }
+    .has-large-font-size { font-size: 1.5rem; }
+    ul, ol { margin: 1rem 0 1.25rem 1.5rem; li { margin-bottom: .4rem; } }
+    a { color: var(--ember); text-decoration: underline; &:hover { text-decoration: none; } }
+    strong { font-weight: 700; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
   }
   &__tags, &__share { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-bottom: 2rem; }
   &__tags { padding-top: 1.5rem; border-top: 1px solid var(--border); }
